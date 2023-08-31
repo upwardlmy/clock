@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>猜数字游戏</title>
+</head>
+<body>
+  <h1>猜数字游戏</h1>
+  <p>请猜测一个1到100之间的整数。</p>
+  <input type="text" id="guessInput" placeholder="请输入你的数字">
+  <button onclick="checkGuess()">猜测</button>
+  <p id="resultText"></p>
+
+  <script>
+    var randomNumber = Math.floor(Math.random() * 100) + 1;
+    var guesses = 0;
+
+    function checkGuess() {
+      var userGuess = parseInt(document.getElementById('guessInput').value);
+      guesses++;
+
+      if (userGuess === randomNumber) {
+        document.getElementById('resultText').innerHTML = '恭喜你猜对了！你用了 ' + guesses + ' 次猜测。';
+      } else if (userGuess < randomNumber) {
+        document.getElementById('resultText').innerHTML = '猜小了！再试一次。';
+      } else {
+        document.getElementById('resultText').innerHTML = '猜大了！再试一次。';
+      }
+    }
+  </script>
+</body>
+</html>
